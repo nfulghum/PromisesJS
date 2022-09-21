@@ -25,3 +25,31 @@ axios.get(`${url}/${favNums}`)
         console.log(res.data)
     })
     .catch(err => console.log("rejected", err))
+
+// Part 3
+let numFacts = [];
+
+axios.get(`${url}/${favNum}`)
+    .then(res => {
+        console.log("First fact")
+        console.log(res.data)
+        return axios.get(res.data.text)
+    })
+axios.get(`${url}/${favNum}`)
+    .then(res => {
+        console.log("Second fact")
+        console.log(res.data)
+        return axios.get(res.data.text)
+    })
+axios.get(`${url}/${favNum}`)
+    .then(res => {
+        console.log("Third fact")
+        console.log(res.data)
+        return axios.get(res.data.text)
+    })
+axios.get(`${url}/${favNum}`)
+    .then(res => {
+        console.log("Fourth fact")
+        console.log(res.data)
+    })
+    .catch(err => console.log("rejected", err))
